@@ -64,8 +64,8 @@ switch( $action ) {
         }
         break;
     case 'Sort Tasks':
-    
-
+        sort($task_list);
+        break;
 }
 
 include('task_list.php');
