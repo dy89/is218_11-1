@@ -36,9 +36,10 @@ switch( $action ) {
             $task_list = array_values($task_list);
         }
         break;
-/*
+
     case 'Modify Task':
-    
+        $task_to_modify = $task_list[filter_input(INPUT_POST, 'taskid', FILTER_VALIDATE_INT)];
+        break;
     case 'Save Changes':
     
     case 'Cancel Changes':
@@ -47,7 +48,7 @@ switch( $action ) {
         
     case 'Sort Tasks':
     
-*/
+
 }
 
 include('task_list.php');

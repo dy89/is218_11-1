@@ -44,7 +44,7 @@
             <input type="text" name="newtask" id="newtask"> <br>
             <label>&nbsp;</label>
             <input type="submit" name="action" value="Add Task">
-            <?php $newtask = filter_input(INPUT_POST. 'newtask'); array_push($task_list, $newtask); ?>
+            <?php $newtask = filter_input(INPUT_POST, 'newtask'); ?> <!--array_push($task_list, $newtask); ?> -->
         </form>
         <br>
 
