@@ -24,7 +24,8 @@ switch( $action ) {
         if (empty($new_task)) {
             $errors[] = 'The new task cannot be empty.';
         } else {
-            $task_list[] = $new_task;
+            array_push($task_list, $new_task);
+            //$task_list[] = $new_task;
         }
         break;
     case 'Delete Task':
@@ -38,12 +39,18 @@ switch( $action ) {
         break;
 
     case 'Modify Task':
-        $task_to_modify = $task_list[filter_input(INPUT_POST, 'taskid', FILTER_VALIDATE_INT)];
+        $task_index = filter_input(INPUT_POST, 'taskid', FILTER_VALIDATE_INT);
+        $task_to_modify = $task_list[$task_index];
         break;
     case 'Save Changes':
-    
+        $task_to_modify = filter_input(INPUT_POST, 'modifiedtask');
+        $task_index = filter_input(INPUT_POST, 'modifiedtaskid');
+        $task_list[$task_index] = $task_to_modify;
+        $task_to_modify = NULL;
+        break;
     case 'Cancel Changes':
-    
+        $task_to_modify = NULL;
+        break;
     case 'Promote Task':
         
     case 'Sort Tasks':
